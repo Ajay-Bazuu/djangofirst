@@ -1,0 +1,46 @@
+{% extends "crudApp/base.html" %}
+ {% block title%} home {% endblock %}
+  {% block content %}
+
+<h1 class="text-center alert alert-success">CRUD Project</h1>
+<div class="container">
+  <div class="row justify-content-center">
+
+    <div class="col-8">
+      <h1 class="text-center alert alert-success">Show Student Information</h1>
+
+      <table class="table">
+        <thead>
+          <tr class="table-danger">
+            <th scope="col">ID</th>
+            <th scope="col">Full Name</th>
+            <th scope="col">Age</th>
+            <th scope="col">Email</th>
+            <th scope="col">Phone Number</th>
+            <th scope="col"></th>
+            <th scope="col"></th>
+            
+          </tr>
+        </thead>
+        <tbody>
+          {% for item in data %}
+          <tr class="table-warning">
+            <!-- <td>{{item.id}}</td> -->
+            <td>{{forloop.counter}}</td>
+            <td >{{item.name}}</td>
+            <td>{{item.age}}</td>
+            <td>{{item.email}}</td>
+            <td>{{item.phone_number}}</td>
+            <td><button type="button" class="btn btn-success">Update</button></td>
+            <td><button type="button" class="btn btn-danger">Delete</button></td>
+
+          </tr>
+          {% endfor %}
+          
+
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+{% endblock content %}

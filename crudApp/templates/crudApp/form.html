@@ -1,0 +1,62 @@
+{% extends "crudApp/base.html" %} {% block title%} form {%endblock%} 
+{% block content %}
+<!-- <h1>This is form page</h1> -->
+<div class="container">
+  <div class="row d-fixed justify-content-center">
+    <div class="col-6 ">
+      <h1 class="text-center alert alert-danger my-4">This is Registration Form</h1>
+
+      {% for message in messages %}
+      <div class="alert alert-warning alert-dismissible fade show" role="alert">
+        {{message}}
+        <button
+          type="button"
+          class="btn-close"
+          data-bs-dismiss="alert"
+          aria-label="Close"
+        ></button>
+      </div>
+
+      {% endfor %}
+      <!-- form starts -->
+      <form method="POST" action="{% url 'form' %}">
+        {% csrf_token %}
+        <div class="mb-3">
+          <label for="name" class="form-label">Full Name</label>
+          <input type="text" class="form-control" id="name" name="name" />
+
+          <label for="age" class="form-label">Age</label>
+          <input type="number" class="form-control" id="age" name="age" />
+
+          <label for="exampleInputEmail1" class="form-label"
+            >Email address</label
+          >
+          <input
+            type="email"
+            class="form-control"
+            id="exampleInputEmail1"
+            aria-describedby="emailHelp"
+            name="email"
+          />
+          <div id="emailHelp" class="form-text">
+            We'll never share your email with anyone else.
+          </div>
+
+          <label for="exampleInputEmail1" class="form-label"
+            >Phone Number</label
+          >
+          <input
+            type="number"
+            class="form-control"
+            id="exampleInputEmail1"
+            aria-describedby="emailHelp"
+            name="phone_number"
+          />
+        </div>
+        <button type="submit" class="btn btn-primary">Register</button>
+      </form>
+      <!-- form ends -->
+    </div>
+  </div>
+</div>
+{% endblock content %}
